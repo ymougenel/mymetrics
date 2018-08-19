@@ -51,5 +51,6 @@ For example for local development : [http://localhost:8080/swagger-ui.html#/](ht
 ## How to contribute
 // TODO: add a contributing.md
 
-## Licence
-//TODO add Licence
+## License
+
+The project is open-source [LICENSE](license), it therefore tries to comply with all the terms related to [the open-source philosophy](https://en.wikipedia.org/wiki/The_Open_Source_Definition).
