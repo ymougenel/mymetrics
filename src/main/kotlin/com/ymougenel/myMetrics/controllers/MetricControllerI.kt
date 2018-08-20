@@ -1,9 +1,7 @@
 package com.ymougenel.myMetrics.controllers
 
 import com.ymougenel.myMetrics.models.Metric
-import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
 
 /**
  * Defines a CRUD+ metricController
@@ -11,18 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping
 interface MetricControllerI {
 
     // ---------------------------------  CRUD  ---------------------------------
-    @PostMapping("/TODO")
     fun create(metric: Metric)
 
-    @GetMapping("/{id}")
     fun get(@PathVariable id: Long) : Metric
 
-//    // TODO
-//    @PutMapping("/TODO")
-//    fun update(metric: Metric)
-//
-//    @DeleteMapping("{id}")
-//    fun delete(@PathVariable id: Long)
+    fun update(metric: Metric)
+
+    fun delete(@PathVariable id: Long)
 //
 //
 //    // -------------------------------- PAGINATION --------------------------------
