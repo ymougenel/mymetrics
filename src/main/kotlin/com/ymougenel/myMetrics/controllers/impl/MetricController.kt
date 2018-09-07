@@ -14,7 +14,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc
 
 @CrossOrigin
 @RestController
-@EnableWebMvc
 @RequestMapping(path = arrayOf("/metrics"))
 @Api(description = "CRUD Metric Controller")
 class MetricController : MetricControllerI {
@@ -39,17 +38,10 @@ class MetricController : MetricControllerI {
                 .orElseThrow { ResourceNotFoundException("Metrics with id ${id} not found") }
     }
 
-    @PutMapping(consumes = [MediaType.APPLICATION_JSON_VALUE], path = arrayOf("/dfdsf"))
-    @ResponseBody
+    @PutMapping(consumes = [MediaType.APPLICATION_JSON_VALUE], path = arrayOf("/"))
     override fun update(@RequestBody metric: Metric) {
         // TODO handle error
         metricsDao.save(metric)
-    }
-
-    @PutMapping(consumes = [MediaType.APPLICATION_JSON_VALUE], path = arrayOf("/"))
-    fun update2(@RequestBody metric: Metric) {
-        // TODO handle error
-//        metricsDao.save(metric)
     }
 
     @DeleteMapping("/{id}")
@@ -58,5 +50,4 @@ class MetricController : MetricControllerI {
         metricsDao.deleteById(id)
     }
 
-    @GetMapping()
 }
