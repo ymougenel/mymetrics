@@ -1,0 +1,23 @@
+version: '2.1'
+
+services: 
+  mysql-mymetrics:
+    image: mysql:8.0.11
+    environment:
+      - MYSQL_ROOT_PASSWORD=p4SSW0rd
+      - MYSQL_DATABASE=mymetrics
+      - MYSQL_USER=dbuser
+      - MYSQL_PASSWORD=dbp4ss
+  mymetrics-back:
+    image: ymougenel/mymetrics-data-back
+    depends_on:
+      - mysql-mymetrics
+    ports:
+      - 8092:8092
+    environment:
+      - DATABASE_HOST=mysql-mymetrics
+      - DATABASE_USER=dbuser
+      - DATABASE_PASSWORD=dbp4ss
+      - DATABASE_NAME=mymetrics
+      - DATABASE_PORT=3306
+
