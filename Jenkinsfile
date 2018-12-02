@@ -24,5 +24,20 @@ pipeline {
             }
           }
 
+          stage('Publish docker image') {
+            /*when {
+              branch 'master'
+            }*/
+            steps {
+              script {
+                /* TODO: change repo name once the workflow is done*/
+                def app = docker.build("slonepi/testing", ".")
+              }
+
+              withDockerRegistry([ credentialsId: "dockerhub-credentials", url: "" ]) {
+                sh 'docker push slonepi/testing:latest'
+              }
+            }
+          }
     }
 }
