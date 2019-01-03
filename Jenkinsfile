@@ -31,11 +31,11 @@ pipeline {
             steps {
               script {
                 /* TODO: change repo name once the workflow is done*/
-                def app = docker.build("slonepi/testing", ".")
+                def app = docker.build("slonepi/mymetrics", ".")
               }
 
               withDockerRegistry([ credentialsId: "dockerhub-credentials", url: "" ]) {
-                sh 'docker push slonepi/testing:latest'
+                sh 'docker push slonepi/mymetrics:latest'
               }
             }
           }

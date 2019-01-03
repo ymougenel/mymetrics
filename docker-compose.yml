@@ -9,7 +9,7 @@ services:
       - MYSQL_USER=dbuser
       - MYSQL_PASSWORD=dbp4ss
   mymetrics-back:
-    image: ymougenel/mymetrics-data-back
+    image: slonepi/testing
     depends_on:
       - mysql-mymetrics
     ports:
